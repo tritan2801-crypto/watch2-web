@@ -1,0 +1,7 @@
+/**
+ * ARCHITECTURE NOTE:
+ * The static styles.css is replaced by Tailwind CSS utility classes loaded dynamically
+ * within the component template strings (in HTML/JS templates) according to rules.md.
+ * 
+ * Custom global styles are injected via the <style> block in index.html.
+ */

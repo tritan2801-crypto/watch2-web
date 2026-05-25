@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_settings",
+  "info": {
+    "singularName": "site-setting",
+    "pluralName": "site-settings",
+    "displayName": "SiteSetting",
+    "description": "Global Website Configurations"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "siteName": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "hotline": {
+      "type": "string"
+    },
+    "zalo": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "seoTitle": {
+      "type": "string"
+    },
+    "seoDescription": {
+      "type": "text"
+    }
+  }
+}

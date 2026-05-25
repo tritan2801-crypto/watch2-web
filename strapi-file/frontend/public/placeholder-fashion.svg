@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Fashion placeholder</title>
+  <desc id="desc">Minimal placeholder image for products and banners without uploaded media.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f5f4" />
+      <stop offset="100%" stop-color="#d6d3d1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)" />
+  <circle cx="920" cy="240" r="190" fill="#10b981" opacity="0.16" />
+  <circle cx="250" cy="980" r="240" fill="#0f172a" opacity="0.08" />
+  <path d="M440 280h320l65 165-97 84 39 391H433l39-391-97-84 65-165Z" fill="#fafaf9" stroke="#d6d3d1" stroke-width="18" />
+  <path d="M519 280c7 77 35 114 81 114s74-37 81-114" fill="none" stroke="#0f172a" stroke-width="24" stroke-linecap="round" />
+  <path d="M472 529c40 28 84 42 128 42s88-14 128-42" fill="none" stroke="#10b981" stroke-width="20" stroke-linecap="round" />
+  <text x="600" y="1010" text-anchor="middle" fill="#44403c" font-family="Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="8">
+    AURA STUDIO
+  </text>
+</svg>

@@ -1,0 +1,1 @@
+"# Caddyfile configuration for production reverse proxy\n:80 {\n    # Compress responses\n    encode gzip\n\n    # Proxy all traffic to the Strapi app service\n    reverse_proxy strapi:1337\n}\n"

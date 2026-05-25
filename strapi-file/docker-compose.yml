@@ -1,0 +1,57 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: shop-postgres-dev
+    environment:
+      POSTGRES_DB: shop_db
+      POSTGRES_USER: shop_user
+      POSTGRES_PASSWORD: shop_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "shop_user", "-d", "shop_db" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  strapi:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: shop-strapi-dev
+    restart: unless-stopped
+    ports:
+      - "1337:1337"
+      - "5173:5173"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 1337
+      APP_KEYS: "toBeModifiedForSecurity1,toBeModifiedForSecurity2,toBeModifiedForSecurity3,toBeModifiedForSecurity4"
+      API_TOKEN_SALT: "toBeModifiedForSecuritySalt1"
+      ADMIN_JWT_SECRET: "toBeModifiedForSecurityAdminJWT"
+      TRANSFER_TOKEN_SALT: "toBeModifiedForSecurityTransferSalt"
+      JWT_SECRET: "toBeModifiedForSecurityJWTSecret"
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: shop_db
+      DATABASE_USERNAME: shop_user
+      DATABASE_PASSWORD: shop_password
+      DATABASE_SSL: "false"
+      NODE_ENV: development
+      STRAPI_ADMIN_BACKEND_URL: "http://localhost:1337"
+    volumes:
+      - ./backend:/opt/app
+      - strapi_node_modules:/opt/app/node_modules
+      - strapi_uploads_dev:/opt/app/public/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: [ "npm", "run", "develop" ]
+
+volumes:
+  postgres_data_dev:
+  strapi_uploads_dev:
+  strapi_node_modules:

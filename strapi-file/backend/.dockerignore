@@ -1,0 +1,9 @@
+.git
+node_modules
+npm-debug.log
+build
+dist
+.env
+.env.local
+.cache
+public/uploads
