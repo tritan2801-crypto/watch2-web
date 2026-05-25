@@ -5,7 +5,7 @@ import MainNavbar from '../../components/MainNavbar.js';
 import Footer from '../Home/Footer.js';
 import { createDialog } from '../../components/ui/dialog.js';
 
-const API_BASE_URL = "http://localhost:8000/api";
+const API_BASE_URL = window.API_BASE_URL || "http://localhost:8000/api";
 
 function getProductSpecs(product) {
     const title = product.title || '';

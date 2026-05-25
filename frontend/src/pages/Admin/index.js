@@ -1,7 +1,7 @@
 /**
  * Page Orchestrator: AdminPage (Dedicated Admin Panel for admin@mvmt.com)
  */
-const API_BASE_URL = "http://localhost:8000/api";
+const API_BASE_URL = window.API_BASE_URL || "http://localhost:8000/api";
 
 export default class AdminPage {
     constructor() {
