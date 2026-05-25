@@ -11,7 +11,7 @@ import Footer from './Footer.js';
 import ValueProps from './ValueProps.js';
 import { createDialog } from '../../components/ui/dialog.js';
 
-const API_BASE_URL = window.API_BASE_URL || "http://localhost:8000/api";
+import { API_BASE_URL } from '../../config.js';
 
 export default class HomePage {
     constructor() {

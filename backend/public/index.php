@@ -11,7 +11,8 @@ if ($origin === '*') {
 header("Access-Control-Allow-Origin: $origin");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Access-Control-Allow-Private-Network");
+header("Access-Control-Allow-Private-Network: true");
 header("Content-Type: application/json; charset=UTF-8");
 
 // Handle preflight OPTIONS request

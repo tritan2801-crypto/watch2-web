@@ -1,11 +1,7 @@
 /**
  * Central Entry Point & Hash Router
  */
-window.API_BASE_URL = window.CUSTOM_API_BASE_URL || (
-    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-        ? 'http://localhost:8000/api'
-        : '/api'
-);
+import { API_BASE_URL } from './config.js';
 
 window.formatPrice = (price) => {
     return parseInt(price).toLocaleString('vi-VN') + 'đ';
@@ -82,7 +78,7 @@ class AppRouter {
         // Fetch current session details
         let user = null;
         try {
-            const res = await fetch(`${window.API_BASE_URL}/auth/me`, { credentials: 'include' });
+            const res = await fetch(`${API_BASE_URL}/auth/me`, { credentials: 'include' });
             if (res.status === 200) {
                 const data = await res.json();
                 if (data.success) {
