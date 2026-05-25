@@ -9,15 +9,24 @@ class Database {
     private static $instance = null;
     private $conn;
 
-    private $host = "127.0.0.1";
-    private $db_name = "watch2_web";
-    private $username = "root";
-    private $password = "";
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
+    private $port;
 
     private function __construct() {
+        // Read database credentials from environment variables (e.g. on Render)
+        // with default fallbacks for local development.
+        $this->host = getenv('DB_HOST') ?: "127.0.0.1";
+        $this->db_name = getenv('DB_NAME') ?: "watch2_web";
+        $this->username = getenv('DB_USER') ?: "root";
+        $this->password = getenv('DB_PASS') !== false ? getenv('DB_PASS') : "";
+        $this->port = getenv('DB_PORT') ?: "3306";
+
         try {
             $this->conn = new PDO(
-                "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8mb4",
+                "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db_name . ";charset=utf8mb4",
                 $this->username,
                 $this->password,
                 [
